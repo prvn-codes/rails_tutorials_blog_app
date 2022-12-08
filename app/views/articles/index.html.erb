@@ -1,0 +1,16 @@
+<h1> My First Ruby Project </h1>
+<br />
+
+<p> This is my first ruby project for Culture monkey!</p>
+
+<h1> Listing all Articles </h1>
+
+<ul> 
+    <% @articles.each do |article| %>
+        <li>
+            <%= link_to article.title, article %>
+            <%= article.body %>
+        </li>
+        <br/>
+    <% end %>
+</ul>
