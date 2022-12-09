@@ -3,15 +3,20 @@
 
 <p> This is my first ruby project for Culture monkey!</p>
 
+<p>I have posted <%= Article.public_count %> Public article(s) and counting! </p>
+
+
 <h1> Listing all Articles </h1>
 
 <ul> 
     <% @articles.each do |article| %>
-        <li>
-            <%= link_to article.title, article %>
-            <%= article.body %>
-        </li>
-        <br/>
+        <% unless article.archived? %>
+            <li>
+                <%= link_to article.title, article %>
+                <%= article.body %>
+            </li>
+            <br/>
+        <% end %>
     <% end %>
 </ul>
 <%= link_to "Create a New Article!", new_article_path %>
