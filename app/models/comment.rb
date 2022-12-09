@@ -10,3 +10,4 @@ class Comment < ApplicationRecord
     status == 'archived'
   end
 end
+  
