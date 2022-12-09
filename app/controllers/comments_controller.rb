@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    http_basic_authenticate_with name: "naane", password: "secret", except: [:index, :show]
+    http_basic_authenticate_with name: "uname", password: "secret", except: [:index, :show]
 
     def create
       @article = Article.find(params[:article_id])
