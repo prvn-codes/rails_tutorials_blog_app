@@ -1,22 +1,24 @@
-<h1> My First Ruby Project </h1>
-<br />
+<%= stylesheet_link_tag "index" %>
 
-<p> This is my first ruby project for Culture monkey!</p>
+<div class="sticky-bar">
+    <h1 class="sticky-bar-item-left"> Amazing Blogs</h1>
+    <%# link_to "Create a New Article!", new_article_path %>
+    <%# <h1 class="sticky-bar-item-center">Amazing Blogs</h1> %>
+    <a href="<%= new_article_path %>" class="sticky-bar-item-right" >
+        Post Article ✍🏼
+    </a>
+</div>
 
-<p>I have posted <%= Article.public_count %> Public article(s) and counting! </p>
-
-
-<h1> Listing all Articles </h1>
-
-<ul> 
+<div class="card-canvas">
     <% @articles.each do |article| %>
         <% unless article.archived? %>
-            <li>
-                <%= link_to article.title, article %>
-                <%= article.body %>
-            </li>
-            <br/>
+            <a href="/articles/<%=article.id%>" class="card card-link">
+                <div class="card-content">
+                    <h1 class="card-title "> <%=article.title%><%# link_to article.title, article %> </h1>
+                    <p class="card-text "><%= article.description %></p>
+                    <img class="card-img" src="<%= image_url("image.jpg")%>" />
+                </div>
+            </a>
         <% end %>
     <% end %>
-</ul>
-<%= link_to "Create a New Article!", new_article_path %>
+</div>

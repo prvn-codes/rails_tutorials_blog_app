@@ -4,7 +4,9 @@ class Article < ApplicationRecord
     has_many :comments, dependent: :destroy
 
     validates :title, presence: true
-    validates :body, presence: true, length: { minimum: 10 }
+    validates :description, presence: true, length: { minimum: 10, maximum: 255}
+    validates :content, presence: true, length: { minimum: 10}
+    
 
     VALID_STATUSES = ['public', 'private', 'archived']
 
